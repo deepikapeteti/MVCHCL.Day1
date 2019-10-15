@@ -1,0 +1,38 @@
+﻿@model List<MVCHCL.Day1.Models.Customer>
+@{
+    ViewBag.Title = "IndexCustomer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2><b><i>Index of Customer Details</i></b></h2>
+@Html.ActionLink("New Customer", "Create", "Customer")
+<table class="table table-bordered table-hover">
+    <tr>
+
+        <th><b>Id</b></th>
+        <th><b>Name</b></th>
+        @*<th><b>Details</b></th>*@
+        @*<th><b></b></th>*@
+        <th><b>MemberShip Type</b></th>
+        <th><b>Edit</b></th>
+        <th><b>Delete</b></th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.id</td>
+            @*<td>@item.customername</td>*@
+            @*<td>@item.City</td>*@
+            <td>@Html.ActionLink(item.customername, "Details", "Customer", new { id = item.id }, null)</td>
+            <td>@item.MembershipType.Type</td>
+            <td>@Html.ActionLink("Edit","Editcustomer","Customer",new { id = item.id },new { @class = "btn btn-primary" })</td>
+            <td>@Html.ActionLink("Delete", "Deletecustomer", "Customer", new { id = item.id },new { @class = "btn btn-primary", onclick = "return confirm('Are sure wants to delete?');" })</td>
+           
+            @*<td>@item.BirthDate</td>
+                <td>@item.Gender</td>*@
+        </tr>
+    }
+
+</table>
+

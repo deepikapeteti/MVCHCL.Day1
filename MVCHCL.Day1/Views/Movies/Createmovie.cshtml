@@ -1,0 +1,41 @@
+﻿@model MVCHCL.Day1.Models.Movie
+@{
+    ViewBag.Title = "Createmovie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Createmovie</h2>
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div>
+            @Html.LabelFor(m => m.name)
+            @Html.TextBoxFor(m => m.name, new { @class = "form-control", autocomplete = "off" })
+            @Html.ValidationMessageFor(m => m.name)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.Releasedate)
+            @Html.TextBoxFor(m => m.Releasedate, new { @class = "form-control", autocomplete = "off" })
+            @Html.ValidationMessageFor(m => m.Releasedate)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.Dateadded)
+            @Html.TextBoxFor(m => m.Dateadded, new { @class = "form-control", autocomplete = "off" })
+            @Html.ValidationMessageFor(m => m.Dateadded)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.Availablestock)
+            @Html.TextBoxFor(m => m.Availablestock, new { @class = "form-control", autocomplete = "off" })
+            @Html.ValidationMessageFor(m => m.Availablestock)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.Genre)
+            @Html.DropDownList("GenreId")
+            @Html.ValidationMessageFor(m => m.GenreId)
+        </div>
+        <div class="form-control">
+            <input type="submit" name="cmdsubmit" value="Submit" class="btn btn-primary" />
+        </div>
+    }
+</div>

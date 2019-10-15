@@ -1,0 +1,22 @@
+﻿@model MVCHCL.Day1.Models.Customer
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (Model != null)
+{
+<h2>Details of SearchedCustomer</h2>
+<h2>@Model.customername</h2>
+<ul>
+    <li><text><b>Birthdate:</b></text>@Model.BirthDate.Value.ToLongDateString()</li>
+    <li><text><b>Gender:</b></text>@Model.Gender</li>
+    <li><text><b>City:</b></text>@Model.City</li>
+    <li><text><b>Duration:</b></text>@Model.MembershipType.Duration</li>
+    <li><text><b>Discount</b></text>@Model.MembershipType.Discount%</li>
+    @Html.ActionLink("Back", "Index", "Customer")
+</ul>
+}
+else
+{
+   <h2><text>No Records Found :(</text></h2>
+}

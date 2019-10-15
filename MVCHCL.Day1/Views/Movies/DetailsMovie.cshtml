@@ -1,0 +1,23 @@
+﻿@model MVCHCL.Day1.Models.Movie
+@{
+    ViewBag.Title = "DetailsMovie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@if (Model != null)
+{
+<h2>Details of Searched Movie</h2>
+    <h2>@Model.name</h2>
+    <ul>
+        <li><text><b>Releasedate:</b></text>@Model.Releasedate.Value.ToLongDateString()</li>
+        <li><text><b>DateAdded:</b></text>@Model.Dateadded.Value.ToLongDateString()</li>
+        @*<li><text><b>Genre:</b></text>@Model.Genre</li>*@
+        @Html.ActionLink("Back", "Index", "Movies")
+    </ul>
+}
+else
+{
+    <h2><text>No Records Found :(</text></h2>
+}

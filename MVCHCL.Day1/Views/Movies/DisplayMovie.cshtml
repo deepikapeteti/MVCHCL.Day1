@@ -1,0 +1,16 @@
+﻿@model MVCHCL.Day1.ViewModel.MovieCustomerViewModel
+@{
+    ViewBag.Title = "DisplayMovie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Movie Details</h2>
+<h2><text>Movie Name:</text><b><i>@Model.Movie.name</i></b></h2>
+<h2>CustomersNames:</h2>
+<ul>
+   @foreach (var item in Model.Customers)
+   {
+    <li><b><i>@item.customername</i></b></li>
+   }
+
+</ul>

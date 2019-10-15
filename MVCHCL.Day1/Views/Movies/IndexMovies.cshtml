@@ -1,0 +1,30 @@
+﻿@model List<MVCHCL.Day1.Models.Movie>
+@{
+    ViewBag.Title = "IndexMovies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2><b><i>Index of Movies Details</i></b></h2>
+@Html.ActionLink("New Movie","Createmovie","Movies")
+<table class="table table-bordered table-hover">
+    <tr>
+
+        <th><b>Id</b></th>
+        <th><b>Name</b></th>
+        <th><b>Details</b></th>
+
+        
+        <th><b>Genre</b></th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>@item.id</td>
+        <td>@item.name</td>
+        <td>@Html.ActionLink("Details", "DetailsMovie", "Movies", new { id = item.id }, null)</td>
+        <td>@item.Genre.Genrename</td>
+    </tr>
+    }
+
+</table>
